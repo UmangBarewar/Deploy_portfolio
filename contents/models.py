@@ -2,7 +2,6 @@ from django.contrib.auth.models import User
 from django.db import models
 from PIL import Image
 
-
 class Profile(models.Model):
     contact_no = models.CharField(max_length=20)
     address = models.CharField(max_length=200)
@@ -20,19 +19,11 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
-    # Override the save function in Profile class:
     def save(self, *args, **kwargs):
         # run the parent class' save() function:
         super().save(*args, **kwargs)
-
-        # open the image of the current instance:
-        img = Image.open(self.image.path)
-
-        if img.height > 425 or img.width > 425:
-            output_size = (425, 425)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
-
+        # Skip image resizing as it's not needed with Cloudinary
+        # Consider using Cloudinary's transformation features if resizing is required
 
 class Focus(models.Model):
     name = models.CharField(max_length=50)
@@ -44,7 +35,6 @@ class Focus(models.Model):
     def __str__(self):
         return f'{self.name} - Active: {self.is_active}'
 
-
 class TechnicalSkill(models.Model):
     name = models.CharField(max_length=20)
     is_top_skill = models.BooleanField(default=True)
@@ -53,14 +43,12 @@ class TechnicalSkill(models.Model):
     def __str__(self):
         return f'{self.name} - Top Skill: {self.is_top_skill}'
 
-
 class ProfessionalSkill(models.Model):
     name = models.CharField(max_length=20)
     percentage = models.IntegerField()
 
     def __str__(self):
         return self.name
-
 
 class Education(models.Model):
     school = models.CharField(max_length=100)
@@ -72,7 +60,6 @@ class Education(models.Model):
     def __str__(self):
         return f'{self.level} - {self.school}'
 
-
 class WorkExperience(models.Model):
     position = models.CharField(max_length=100)
     company = models.CharField(max_length=100)
@@ -83,14 +70,12 @@ class WorkExperience(models.Model):
     def __str__(self):
         return f'{self.position} - {self.company}'
 
-
 class ProjectCategory(models.Model):
     name = models.CharField(max_length=30)
     code = models.CharField(max_length=20)
 
     def __str__(self):
         return self.name
-
 
 class Project(models.Model):
     title = models.CharField(max_length=200)
@@ -107,14 +92,12 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
-
 class ToolsAndTech(models.Model):
     name = models.CharField(max_length=30)
     project = models.ManyToManyField(Project, related_name='toolsandtechs')
 
     def __str__(self):
         return self.name
-
 
 class ProjectImage(models.Model):
     image = models.ImageField(upload_to='project_images')
@@ -123,7 +106,6 @@ class ProjectImage(models.Model):
 
     def __str__(self):
         return f'{self.project.code} - {self.image.name}'
-
 
 class Recommendation(models.Model):
     name = models.CharField(max_length=40)
@@ -134,7 +116,6 @@ class Recommendation(models.Model):
     def __str__(self):
         return f'{self.name} - {self.summary}'
 
-
 class Certification(models.Model):
     title = models.CharField(max_length=100)
     authority = models.CharField(max_length=30)
@@ -143,7 +124,6 @@ class Certification(models.Model):
 
     def __str__(self):
         return self.title
-
 
 class Seminar(models.Model):
     title = models.CharField(max_length=100)
