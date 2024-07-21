@@ -11,7 +11,29 @@ services:
         value: 'False'  # Set to 'True' for debugging, 'False' for production
     staticPublishPath: staticfiles
     autoDeploy: true
-    - type: static
-    name: media
-    staticPublishPath: media
-    autoDeploy: true
+
+routes:
+  - type: static
+    path: /static
+    source: staticfiles
+  - type: static
+    path: /media
+    source: media
+
+# services:
+#   - type: web
+#     name: portfolio
+#     env: python
+#     buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
+#     startCommand: "gunicorn portfolio.wsgi:application"
+#     envVars:
+#       - key: SECRET_KEY
+#         value: 89f44935d507cd99db0e2a6cb165ff73  # Use a secure key in production
+#       - key: DEBUG
+#         value: 'False'  # Set to 'True' for debugging, 'False' for production
+#     staticPublishPath: staticfiles
+#     autoDeploy: true
+#     - type: static
+#     name: media
+#     staticPublishPath: media
+#     autoDeploy: true
