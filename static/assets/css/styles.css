@@ -265,10 +265,7 @@ a {
 .mini-separator {
   padding: 20px 0; }
   
-  section {
-    //padding: 60px 0;
-    //padding-bottom: 30px;
-}
+
 
 /**
  * ---------------------
@@ -526,14 +523,8 @@ ul {
   margin: 0 auto;
   background-position: center center; }
 
-.home-2-img {
-  background-image: url(../images/home-bg-img.jpg); }
 
-.featured-img-one {
-  background-image: url(../images/home-bg-img.jpg); }
 
-.featured-img-two {
-  background-image: url(../images/extra-feature-bg.jpg); }
 
 .map-image {
   background-image: url(../images/map-color-overlay.png); }
@@ -2681,4 +2672,4 @@ BLOG Pagination
   line-height: 30px;
   margin-bottom: 30px; }
 
-/*# sourceMappingURL=styles.css.map */
+

@@ -2398,7 +2398,6 @@ body.mobile .animated {
     display: block;
     height: 2px;
     width: 70px;
-    /*background: url('../images/shape.png');*/
     background-repeat: no-repeat;
     left: 50%;
     margin-left: -25px;
