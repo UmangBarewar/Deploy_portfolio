@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
 from django.db import models
 from PIL import Image
+from cloudinary.models import CloudinaryField
+
 
 class Profile(models.Model):
     contact_no = models.CharField(max_length=20)
