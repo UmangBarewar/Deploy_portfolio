@@ -144,9 +144,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # this above line is being removed for giving cloud access to cloudinary
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
-    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
-    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET')
+    'CLOUD_NAME': "portfolio_ub",
+    'API_KEY': "674161889576493",
+    'API_SECRET': "Rkt3w4TsPODdDzbA4q7jcmGRo8E"
 }
 
 # Use Cloudinary for media files
