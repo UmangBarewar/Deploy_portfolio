@@ -5,7 +5,8 @@ from PIL import Image
 class Profile(models.Model):
     contact_no = models.CharField(max_length=20)
     address = models.CharField(max_length=200)
-    image = models.ImageField(help_text='425x425px recommended', upload_to='profile_pics')
+    # image = models.ImageField(help_text='425x425px recommended', upload_to='profile_pics')
+    image = CloudinaryField('image', help_text='425x425px recommended')
     title = models.CharField(max_length=200, blank=True)
     linkedin_url = models.CharField(max_length=100)
     github_url = models.CharField(max_length=50, default="")
