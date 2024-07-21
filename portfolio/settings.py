@@ -144,7 +144,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # this above line is being removed for giving cloud access to cloudinary
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': "portfolio_ub",
+    'CLOUD_NAME': "du6yeb9y3",
     'API_KEY': "674161889576493",
     'API_SECRET': "Rkt3w4TsPODdDzbA4q7jcmGRo8E"
 }
