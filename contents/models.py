@@ -96,6 +96,9 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+    def get_main_image_url(self):
+        return self.main_image.url if self.main_image else 'default-image-url'
+        
 class ToolsAndTech(models.Model):
     name = models.CharField(max_length=30)
     project = models.ManyToManyField(Project, related_name='toolsandtechs')
