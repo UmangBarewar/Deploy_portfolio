@@ -63,6 +63,12 @@
         .footer .social-links a:hover {
             color: #007bff;
         }
+        .admin-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
@@ -116,6 +122,9 @@
             </div>
         </div>
     </header>
+    <div class="admin-button">
+        <a href="{% url 'admin:index' %}" class="btn btn-primary">Admin Page</a>
+    </div>
 
     {% block content %}
     {% endblock %}
