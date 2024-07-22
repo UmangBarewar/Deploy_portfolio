@@ -251,8 +251,14 @@
                         </div>
                         <div class="col-sm-7">
                             <div class="mh-portfolio-modal-img">
-                                {% for image in project.projectimages.values %}
+<!--                                 {% for image in project.projectimages.values %}
                                     <center><img src="/media/{{ image.image }}" alt="" class="img-fluid"></center>
+                                    {% if image.caption %}
+                                        <p style="text-align: center"><b>{{ image.caption }}</b></p>
+                                    {% endif %}
+                                {% endfor %} -->
+                                {% for image in project.projectimages.all %}
+                                    <center><img src="{{ image.get_image_url }}" alt="" class="img-fluid"></center>
                                     {% if image.caption %}
                                         <p style="text-align: center"><b>{{ image.caption }}</b></p>
                                     {% endif %}
