@@ -9,7 +9,7 @@ class Profile(models.Model):
     address = models.CharField(max_length=200)
     # image = models.ImageField(help_text='425x425px recommended', upload_to='profile_pics')
     image = CloudinaryField('image', help_text='425x425px recommended')
-    profile_image_url = models.URLField(max_length=255, blank=True, null=True)  # New field to store the image URL
+    profile_image_url = models.URLField(max_length=255, blank=True, null=True,default="https://res.cloudinary.com/du6yeb9y3/image/upload/v1721673265/zggi1n3rdhhce7zw2qvn.jpg"))  # New field to store the image URL
     title = models.CharField(max_length=200, blank=True)
     linkedin_url = models.CharField(max_length=100)
     github_url = models.CharField(max_length=50, default="")
