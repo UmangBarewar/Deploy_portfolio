@@ -28,7 +28,7 @@ def certification(request, pk):
 
 def home(request):
     username = User.objects.get()
-    profile = Profile.objects.get(user=user)
+    profile = Profile.objects.get(user=username)
     top_skills = TechnicalSkill.objects.filter(is_top_skill=True)
     focus = Focus.objects.filter(is_active=True)
     technical_skills = TechnicalSkill.objects.order_by('id')
