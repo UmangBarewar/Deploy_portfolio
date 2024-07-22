@@ -9,6 +9,7 @@ class Profile(models.Model):
     address = models.CharField(max_length=200)
     # image = models.ImageField(help_text='425x425px recommended', upload_to='profile_pics')
     image = CloudinaryField('image', help_text='425x425px recommended')
+    profile_image_url = models.URLField(max_length=255, blank=True, null=True)  # New field to store the image URL
     title = models.CharField(max_length=200, blank=True)
     linkedin_url = models.CharField(max_length=100)
     github_url = models.CharField(max_length=50, default="")
@@ -21,12 +22,17 @@ class Profile(models.Model):
 
     def __str__(self):
         return f'{self.user.username} Profile'
-
+        
     def save(self, *args, **kwargs):
-        # run the parent class' save() function:
+        if self.image:
+            self.profile_image_url = self.image.url  # Store the URL in the new field
         super().save(*args, **kwargs)
-        # Skip image resizing as it's not needed with Cloudinary
-        # Consider using Cloudinary's transformation features if resizing is required
+
+    # def save(self, *args, **kwargs):
+    #     # run the parent class' save() function:
+    #     super().save(*args, **kwargs)
+    #     # Skip image resizing as it's not needed with Cloudinary
+    #     # Consider using Cloudinary's transformation features if resizing is required
 
 class Focus(models.Model):
     name = models.CharField(max_length=50)
