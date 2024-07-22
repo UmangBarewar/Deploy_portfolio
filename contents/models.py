@@ -24,10 +24,11 @@ class Profile(models.Model):
         return f'{self.user.username} Profile'
         
     def save(self, *args, **kwargs):
-        self.profile_image_url = self.image.url
-        # if self.image:
-        #     self.profile_image_url = self.image.url  # Store the URL in the new field
-        super().save(*args, **kwargs)
+        super().save(*args, **kwargs)  # Save the instance first
+        if self.image and not self.profile_image_url:
+            # Only update the profile_image_url if it hasn't been set yet
+            self.profile_image_url = self.image.url
+            super().save(*args, **kwargs)  # Save again to update the URL
 
     # def save(self, *args, **kwargs):
     #     # run the parent class' save() function:
