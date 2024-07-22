@@ -144,9 +144,9 @@ MEDIA_URL = 'https://res.cloudinary.com/du6yeb9y3/image/upload/'
 # this above line is being removed for giving cloud access to cloudinary
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': "du6yeb9y3",
-    'API_KEY': "674161889576493",
-    'API_SECRET': "Rkt3w4TsPODdDzbA4q7jcmGRo8E"
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET')
 }
 
 # Use Cloudinary for media files
