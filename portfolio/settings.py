@@ -140,7 +140,7 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_URL = 'https://res.cloudinary.com/du6yeb9y3/image/upload/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # this above line is being removed for giving cloud access to cloudinary
 
 CLOUDINARY_STORAGE = {
