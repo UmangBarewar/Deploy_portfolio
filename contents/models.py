@@ -115,6 +115,8 @@ class ProjectImage(models.Model):
     def __str__(self):
         # return f'{self.project.code} - {self.image.name}'
         return f'{self.project.code} - {self.image.public_id if self.image else "No image"}'
+    def get_image_url(self):
+        return self.image.url if self.image else 'No extra image available'
 
 class Recommendation(models.Model):
     name = models.CharField(max_length=40)
