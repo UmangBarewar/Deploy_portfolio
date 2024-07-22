@@ -24,8 +24,9 @@ class Profile(models.Model):
         return f'{self.user.username} Profile'
         
     def save(self, *args, **kwargs):
-        if self.image:
-            self.profile_image_url = self.image.url  # Store the URL in the new field
+        self.profile_image_url = self.image.url
+        # if self.image:
+        #     self.profile_image_url = self.image.url  # Store the URL in the new field
         super().save(*args, **kwargs)
 
     # def save(self, *args, **kwargs):
