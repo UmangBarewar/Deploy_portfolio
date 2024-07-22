@@ -94,7 +94,7 @@ class Project(models.Model):
     project_category = models.ForeignKey(ProjectCategory, on_delete=models.CASCADE, related_name='projects')
 
     def __str__(self):
-        return self.title
+        return f"{self.title} - {self.main_image.public_id if self.main_image else 'No image'}"
 
     def get_main_image_url(self):
         return self.main_image.url if self.main_image else 'default-image-url'
