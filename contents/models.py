@@ -86,8 +86,8 @@ class Project(models.Model):
     description = models.TextField()
     date_started = models.CharField(max_length=20, blank=True)
     date_ended = models.CharField(max_length=20, blank=True)
-    main_image = models.ImageField(upload_to='project_images', default='')
-    # image = CloudinaryField('image', help_text='425x425px recommended')
+    # main_image = models.ImageField(upload_to='project_images', default='')
+    main_image = CloudinaryField('project_images', help_text='425x425px recommended')
     repo_link = models.CharField(max_length=100, blank=True)
     demo_link = models.CharField(max_length=500, blank=True)
     document_link = models.CharField(max_length=255, blank=True)
@@ -104,8 +104,8 @@ class ToolsAndTech(models.Model):
         return self.name
 
 class ProjectImage(models.Model):
-    image = models.ImageField(upload_to='project_images')
-    # image = CloudinaryField('image', help_text='425x425px recommended')
+    # image = models.ImageField(upload_to='project_images')
+    image = CloudinaryField('project_images_others', help_text='425x425px recommended')
     caption = models.CharField(max_length=100, blank=True)
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='projectimages')
 
