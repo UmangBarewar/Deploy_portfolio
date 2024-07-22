@@ -113,7 +113,8 @@ class ProjectImage(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='projectimages')
 
     def __str__(self):
-        return f'{self.project.code} - {self.image.name}'
+        # return f'{self.project.code} - {self.image.name}'
+        return f'{self.project.code} - {self.image.public_id if self.image else "No image"}'
 
 class Recommendation(models.Model):
     name = models.CharField(max_length=40)
