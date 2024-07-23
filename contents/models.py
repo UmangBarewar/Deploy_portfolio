@@ -105,7 +105,9 @@ class Project(models.Model):
         return f"{self.title} - {self.main_image.public_id if self.main_image else 'No image'}"
 
     def get_main_image_url(self):
-        return self.main_image.url if self.main_image else 'default-image-url'
+        default_image_url = 'https://res.cloudinary.com/du6yeb9y3/image/upload/v1721754729/i1uct58shbi8dupw3eqj.png'
+        return self.main_image.url if self.main_image else default_image_url
+        # return self.main_image.url if self.main_image else 'default-image-url'
         
 class ToolsAndTech(models.Model):
     name = models.CharField(max_length=30)
