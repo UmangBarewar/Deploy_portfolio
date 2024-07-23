@@ -208,9 +208,9 @@
                             {% for project in projects %}
                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 {{ project.project_category.code }}">
                                     <figure>
-                                        <img src="{{ project.main_image.url|default:'https://res.cloudinary.com/du6yeb9y3/image/upload/v1721754729/i1uct58shbi8dupw3eqj.png' }}" alt="{{ project.title }}">
+<!--                                         <img src="{{ project.main_image.url|default:'https://res.cloudinary.com/du6yeb9y3/image/upload/v1721754729/i1uct58shbi8dupw3eqj.png' }}" alt="{{ project.title }}"> -->
 <!--                                         <img src="{{ project.get_main_image_url|default:'https://res.cloudinary.com/du6yeb9y3/image/upload/v1721751438/Sep_01_p8wrwx.png'  }}" alt="{{ project.title }}"> -->
-<!--                                         <img src="{{ project.get_main_image_url|default:'https://res.cloudinary.com/du6yeb9y3/image/upload/v1721754729/i1uct58shbi8dupw3eqj.png' }}" alt="{{ project.title }}"> -->
+                                        <img src="{{ project.get_main_image_url|default:'https://res.cloudinary.com/du6yeb9y3/image/upload/v1721754729/i1uct58shbi8dupw3eqj.png' }}" alt="{{ project.title }}">
 
 
                                         <figcaption class="fig-caption">
